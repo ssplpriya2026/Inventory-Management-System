@@ -19,9 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\" />
-    <Folder Include="Services\Implementation\" />
-  </ItemGroup>
-
 </Project>

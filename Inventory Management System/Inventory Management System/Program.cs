@@ -1,4 +1,6 @@
 using Inventory_Management_System.Data;
+using Inventory_Management_System.Repository;
+using Inventory_Management_System.UoW;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +10,9 @@ builder.Services.AddControllersWithViews();
 
 // Database Connectivity
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Inject UnitOfWork
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
