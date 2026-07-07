@@ -90,7 +90,7 @@ namespace Inventory_Management_System.Services
                 return new ServiceResult
                 {
                     Success = false,
-                    ErrorMessage = "Cannot delete this category because it has product assidned to it"
+                    ErrorMessage = "Cannot delete this category."
                 };
             }
             return new ServiceResult { Success = true };

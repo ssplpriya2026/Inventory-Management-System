@@ -1,5 +1,5 @@
 using Inventory_Management_System.Data;
-using Inventory_Management_System.Repository;
+using Inventory_Management_System.Services;
 using Inventory_Management_System.UoW;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +13,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
 
 // Inject UnitOfWork
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+//Inject Services
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IStockTransactionService, StockTransactionService>();
 
 var app = builder.Build();
 

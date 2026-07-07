@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\controllers\\categoriescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\services\\categoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\views\\categories\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|c:\\priya sharma\\inventory git\\inventory-management-system\\inventory management system\\inventory management system\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{01A0C156-8340-9300-EC62-075421E7DB4A}|Inventory Management System\\Inventory Management System.csproj|solutionrelative:inventory management system\\views\\categories\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryService.cs",
-              "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Services\\CategoryService.cs",
-              "RelativeDocumentMoniker": "Inventory Management System\\Services\\CategoryService.cs",
-              "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Services\\CategoryService.cs",
-              "RelativeToolTip": "Inventory Management System\\Services\\CategoryService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-06T13:16:39.182Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoriesController.cs",
-              "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Controllers\\CategoriesController.cs",
-              "RelativeDocumentMoniker": "Inventory Management System\\Controllers\\CategoriesController.cs",
-              "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Controllers\\CategoriesController.cs",
-              "RelativeToolTip": "Inventory Management System\\Controllers\\CategoriesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-06T12:29:00.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Views\\Categories\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Inventory Management System\\Views\\Categories\\Edit.cshtml",
+              "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Views\\Categories\\Edit.cshtml",
+              "RelativeToolTip": "Inventory Management System\\Views\\Categories\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-07T11:50:37.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Views\\Categories\\Index.cshtml",
+              "RelativeDocumentMoniker": "Inventory Management System\\Views\\Categories\\Index.cshtml",
+              "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Views\\Categories\\Index.cshtml",
+              "RelativeToolTip": "Inventory Management System\\Views\\Categories\\Index.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACoAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-07-07T11:44:02.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Program.cs",
               "RelativeDocumentMoniker": "Inventory Management System\\Program.cs",
               "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Program.cs",
               "RelativeToolTip": "Inventory Management System\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-06T04:54:52.591Z",
+              "WhenOpened": "2026-07-07T09:29:48.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Inventory Management System\\Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\priya sharma\\Inventory Git\\Inventory-Management-System\\Inventory Management System\\Inventory Management System\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Inventory Management System\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-07T06:29:50.13Z",
               "EditorCaption": ""
             }
           ]

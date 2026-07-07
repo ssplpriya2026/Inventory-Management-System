@@ -1,0 +1,58 @@
+﻿@model Inventory_Management_System.ViewModel.ProductViewModel
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h2>Create Product</h2>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SKU" class="form-label"></label>
+        <input asp-for="SKU" class="form-control" />
+        <span asp-validation-for="SKU" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+            <option value="">Select Category </option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="UnitPrice" class="form-label"></label>
+        <input asp-for="UnitPrice" class="form-control" />
+        <span asp-validation-for="UnitPrice" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="CurrentStockQuantity" class="form-label"></label>
+        <input asp-for="CurrentStockQuantity" class="form-control" />
+        <span asp-validation-for="CurrentStockQuantity" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ReorderThreshold" class="form-label"></label>
+        <input asp-for="ReorderThreshold" class="form-control" />
+        <span asp-validation-for="ReorderThreshold" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-info">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,38 @@
+﻿@model List<Inventory_Management_System.ViewModel.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Low Stock Products";
+}
+
+<h2>Low Stock Products List</h2>
+
+<p><a asp-action="Index" class="btn btn-secondary">Back to Index Page.</a></p>
+
+@if (Model.Count == 0)
+{
+    <div>No products are currently low on stock.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>SKU</th>
+                <th>Current Stock</th>
+                <th>Reorder Threshold</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr class="table-warning">
+                    <td>@product.Name</td>
+                    <td>@product.SKU</td>
+                    <td>@product.CurrentStockQuantity</td>
+                    <td>@product.ReorderThreshold</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

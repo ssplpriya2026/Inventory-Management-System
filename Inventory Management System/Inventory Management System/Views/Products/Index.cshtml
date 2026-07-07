@@ -1,0 +1,58 @@
+﻿@model List<Inventory_Management_System.ViewModel.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h2>Products</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["Error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-dark">Add New Product</a>
+
+    <a asp-action="LowStock" class="btn btn-outline-dark">View Low Stock</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Unit Price</th>
+            <th>Current Stock</th>
+            <th>Reorder Threshold</th>
+            <th>Modification</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.SKU</td>
+                <td>@product.UnitPrice</td>
+                <td>@product.CurrentStockQuantity</td>
+                <td>@product.ReorderThreshold</td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-outline-dark" asp-route-id="@product.Id">Edit</a> 
+                    <a asp-action="Delete" class="btn btn-outline-dark" asp-route-id="@product.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
