@@ -48,7 +48,7 @@ namespace Inventory_Management_System.Controllers
 
             if (!result.Success)
             {
-                ModelState.AddModelError(string.Empty, result.ErrorMessage);
+                ModelState.AddModelError("", result.ErrorMessage);
 
                 var dropDownData = await _productService.GetCreateFormAsync();
                 viewModel.Categories = dropDownData.Categories;
@@ -89,7 +89,7 @@ namespace Inventory_Management_System.Controllers
 
             if (!result.Success)
             {
-                ModelState.AddModelError(string.Empty, result.ErrorMessage);
+                ModelState.AddModelError("", result.ErrorMessage);
                 var dropdownData = await _productService.GetEditFormAsync(id);
                 viewModel.Categories = dropdownData.Categories;
                 return View(viewModel);

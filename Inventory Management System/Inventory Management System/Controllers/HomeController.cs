@@ -1,4 +1,5 @@
 using Inventory_Management_System.Models;
+using Inventory_Management_System.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -6,9 +7,16 @@ namespace Inventory_Management_System.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IProductService _productService;
+
+        public HomeController(IProductService productService)
         {
-            return View();
+            _productService = productService;
+        }
+        public async Task<IActionResult> Index()
+        {
+            var viewModel = await _productService.GetDashBoardAsync();
+            return View(viewModel);
         }
 
     }

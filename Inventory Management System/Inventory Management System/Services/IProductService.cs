@@ -12,5 +12,7 @@ namespace Inventory_Management_System.Services
         Task<ServiceResult> CreateAsync(ProductViewModel viewModel);
         Task<ServiceResult> UpdateAsync(ProductViewModel viewModel);
         Task<ServiceResult> DeleteAsync(int id);
+        Task<DashBoardViewModel> GetDashBoardAsync();
+        Task<StockValueReportViewModel> GetStockValueReportAsync();
     }
 }

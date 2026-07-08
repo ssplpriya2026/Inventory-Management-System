@@ -38,7 +38,7 @@ namespace Inventory_Management_System.Controllers
 
             if (!result.Success)
             {
-                ModelState.AddModelError(string.Empty, result.ErrorMessage);
+                ModelState.AddModelError("", result.ErrorMessage);
                 return View(viewModel);
             }
             TempData["Success"] = "created successfully.";
@@ -73,7 +73,7 @@ namespace Inventory_Management_System.Controllers
 
             if (!result.Success)
             {
-                ModelState.AddModelError(string.Empty, result.ErrorMessage);
+                ModelState.AddModelError("", result.ErrorMessage);
                 return View(viewModel);
             }
 

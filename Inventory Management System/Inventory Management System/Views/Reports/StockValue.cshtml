@@ -1,0 +1,34 @@
+﻿@model Inventory_Management_System.ViewModel.StockValueReportViewModel
+
+@{
+    ViewData["Title"] = "Stock Value Report";
+}
+
+<h2>Stock Value Report</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Total Quantity</th>
+            <th>Total Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var row in Model.Categories)
+        {
+            <tr>
+                <td>@row.CategoryName</td>
+                <td>@row.TotalQuantity</td>
+                <td>@row.TotalValue.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Grand Total</th>
+            <th></th>
+            <th>@Model.GrandTotal.ToString("C")</th>
+        </tr>
+    </tfoot>
+</table>

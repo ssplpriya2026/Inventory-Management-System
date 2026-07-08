@@ -72,6 +72,6 @@ namespace Inventory_Management_System.UoW
                 _transaction.Dispose();
             }
             _context.Dispose();
-        }
+         }
     }
 }

@@ -31,16 +31,21 @@ namespace Inventory_Management_System.Services
 
             if (product == null)
             {
-                return new ServiceResult { Success = false, ErrorMessage = "selected product no longer exists." };
+                return new ServiceResult { 
+                    Success = false,
+                    ErrorMessage = "Product Not Found" };
             }
 
-            if (viewModel.Type == TransactionType.OUT && viewModel.Quantity > product.CurrentStockQuantity)
+            if (viewModel.Type == TransactionType.OUT) 
             {
-                return new ServiceResult
+                if(viewModel.Quantity > product.CurrentStockQuantity)
                 {
-                    Success = false,
-                    ErrorMessage = $"Cannot remove {viewModel.Quantity} units only {product.CurrentStockQuantity} in stock."
-                };
+                    return new ServiceResult
+                    {
+                        Success = false,
+                        ErrorMessage = "Not enough stock available."
+                    };
+                }
             }
 
             var transaction = new StockTransaction
@@ -49,7 +54,7 @@ namespace Inventory_Management_System.Services
                 Type = viewModel.Type,
                 Quantity = viewModel.Quantity,
                 Note = viewModel.Note,
-                Date = DateTime.Now
+                Date = DateTime.Now.Date
             };
 
             await _unitOfWork.BeginTransactionAsync();
@@ -66,8 +71,16 @@ namespace Inventory_Management_System.Services
 
                 _unitOfWork.Products.Update(product);
                 await _unitOfWork.StockTransactions.AddAsync(transaction);
+
+                //throw new Exception("Test atomicity");
+
                 await _unitOfWork.SaveChangesAsync();
-                await _unitOfWork.CommitAsync();
+                    await _unitOfWork.CommitAsync();
+
+                return new ServiceResult
+                {
+                    Success = true 
+                };
             }
             catch (Exception)
             {
@@ -78,8 +91,6 @@ namespace Inventory_Management_System.Services
                     ErrorMessage = "An error occurred while recording the transaction. No changes were saved."
                 };
             }
-            
-            return new ServiceResult { Success = true };
         }
     }
 }

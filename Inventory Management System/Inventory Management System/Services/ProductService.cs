@@ -1,4 +1,5 @@
-﻿using Inventory_Management_System.Models;
+﻿using AspNetCoreGeneratedDocument;
+using Inventory_Management_System.Models;
 using Inventory_Management_System.UoW;
 using Inventory_Management_System.ViewModel;
 
@@ -53,14 +54,14 @@ namespace Inventory_Management_System.Services
             return viewModels;
         }
         
-        // get category dropdown
+        // get category list
         public async Task<ProductViewModel> GetCreateFormAsync()
         {
             var viewModel = new ProductViewModel();
             viewModel.Categories = await GetCategoryListAsync();
             return viewModel;
         }
-        // edit category dropdown
+        // edit Product 
         public async Task<ProductViewModel> GetEditFormAsync(int id)
         {
             var product = await _unitOfWork.Products.GetByIdAsync(id);
@@ -74,6 +75,7 @@ namespace Inventory_Management_System.Services
             viewModel.Categories = await GetCategoryListAsync();
             return viewModel;
         }
+
         // add new product
         public async Task<ServiceResult> CreateAsync(ProductViewModel viewModel)
         {
@@ -142,7 +144,9 @@ namespace Inventory_Management_System.Services
 
             if (product == null)
             {
-                return new ServiceResult { Success = false, ErrorMessage = "Product not found." };
+                return new ServiceResult {
+                    Success = false,
+                    ErrorMessage = "Product not found." };
             }
 
             try
@@ -162,6 +166,80 @@ namespace Inventory_Management_System.Services
             return new ServiceResult { Success = true };
         }
 
+        // Dashboard Page
+        public async Task<DashBoardViewModel> GetDashBoardAsync()
+        {
+            var products = await _unitOfWork.Products.GetAllAsync();
+
+            int totalProducts = products.Count;
+            decimal totalStockValue = 0;
+            int lowStockCount = 0;
+
+            foreach (var product in products)
+            {
+                decimal valueOfProduct = product.CurrentStockQuantity * product.UnitPrice;
+                totalStockValue = totalStockValue + valueOfProduct;
+                if (product.CurrentStockQuantity <= product.ReorderThreshold)
+                {
+                    lowStockCount = lowStockCount + 1;
+                }
+            }
+                var viewModel = new DashBoardViewModel
+                {
+                    TotalProducts = totalProducts,
+                    TotalStockValue = totalStockValue,
+                    LowStockCount = lowStockCount
+                };
+            
+            return viewModel;
+        }
+
+        // stockValue report page
+        public async Task<StockValueReportViewModel> GetStockValueReportAsync()
+        {
+            var allProducts = await _unitOfWork.Products.GetAllAsync();
+            var allCategories = await _unitOfWork.Categories.GetAllAsync();
+
+            //list to store data
+            var reportRows = new List<CategoryStockValueViewModel>();
+            decimal grandTotal = 0;
+
+            // loop for category
+            foreach (var category in allCategories)
+            {
+                int categoryQuantity = 0;
+                decimal categoryValue = 0;
+                // check product under each category
+                foreach (var product in allProducts)
+                {
+                    if (product.CategoryId == category.Id)
+                    {
+                        categoryQuantity = categoryQuantity + product.CurrentStockQuantity;
+                        decimal productValue = product.CurrentStockQuantity * product.UnitPrice;
+                        categoryValue = categoryValue + productValue;
+                    }
+                }
+                // create a row for category
+                var row = new CategoryStockValueViewModel();
+                row.CategoryName = category.Name;
+                row.TotalQuantity = categoryQuantity;
+                row.TotalValue = categoryValue;
+
+                // add row to report table
+                reportRows.Add(row);
+
+                // add stock value to get grand total
+                grandTotal = grandTotal + categoryValue;
+            }
+
+            // generate final table
+            var reportViewModel = new StockValueReportViewModel();
+            reportViewModel.Categories = reportRows;
+            reportViewModel.GrandTotal = grandTotal;
+
+            return reportViewModel;
+        }
+
         // product viewmodel properties
         private async Task<ProductViewModel> ToProductViewModelAsync(Product product)
         {
@@ -178,7 +256,7 @@ namespace Inventory_Management_System.Services
 
             return viewModel;
         }
-
+        
         // category dropdown
         private async Task<List<CategoryViewModel>> GetCategoryListAsync()
         {
