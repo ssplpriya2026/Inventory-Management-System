@@ -1,0 +1,26 @@
+﻿@model Inventory_Management_System.ViewModel.CategoryViewModel
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<h2>Create Category</h2>
+
+<div asp-validation-summary="All"></div>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-outline-dark">Create</button>
+    <a asp-action="Index" class="btn btn-outline-dark">Cancel</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
