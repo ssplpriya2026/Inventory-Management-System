@@ -5,5 +5,6 @@
         public int TotalProducts { get; set; }
         public decimal TotalStockValue { get; set; }
         public int LowStockCount { get; set; }
+        public List<RecentStockTransactionViewModel> RecentTransaction { get; set; }
     }
 }

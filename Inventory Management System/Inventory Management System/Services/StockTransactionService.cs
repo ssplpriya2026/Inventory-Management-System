@@ -54,7 +54,7 @@ namespace Inventory_Management_System.Services
                 Type = viewModel.Type,
                 Quantity = viewModel.Quantity,
                 Note = viewModel.Note,
-                Date = DateTime.Now.Date
+                Date = DateTime.Now
             };
 
             await _unitOfWork.BeginTransactionAsync();
@@ -75,7 +75,7 @@ namespace Inventory_Management_System.Services
                 //throw new Exception("Test atomicity");
 
                 await _unitOfWork.SaveChangesAsync();
-                    await _unitOfWork.CommitAsync();
+                await _unitOfWork.CommitAsync();
 
                 return new ServiceResult
                 {
@@ -91,6 +91,38 @@ namespace Inventory_Management_System.Services
                     ErrorMessage = "An error occurred while recording the transaction. No changes were saved."
                 };
             }
+        }
+        // Dashboard list of recent stock
+        public async Task<List<RecentStockTransactionViewModel>> GetRecentTransactionAsync()
+        {
+            var allTransactions = await _unitOfWork.StockTransactions.GetAllAsync();
+            var allproducts = await _unitOfWork.Products.GetAllAsync();
+
+            var sorted = allTransactions.OrderByDescending(t => t.Date).Take(3);
+
+            var result = new List<RecentStockTransactionViewModel>();
+
+            foreach(var transaction in sorted)
+            {
+                string productName = "Unknown Product";
+
+                foreach(var products in allproducts)
+                {
+                    if(products.Id == transaction.ProductId)
+                    {
+                        productName = products.Name;
+                    }
+                }
+
+                var row = new RecentStockTransactionViewModel();
+                row.ProductName = productName;
+                row.Type = transaction.Type.ToString();
+                row.Quantity = transaction.Quantity;
+                row.Date = transaction.Date;
+
+                result.Add(row);
+            }
+            return result;
         }
     }
 }

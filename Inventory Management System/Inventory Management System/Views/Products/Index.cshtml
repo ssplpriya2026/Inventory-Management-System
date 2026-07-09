@@ -42,7 +42,9 @@
     <tbody>
         @foreach (var product in Model)
         {
-            <tr>
+            bool isLowStock = product.CurrentStockQuantity <= product.ReorderThreshold;
+
+            <tr class="@(isLowStock ? "table-danger" : "")">
                 <td>@product.Name</td>
                 <td>@product.SKU</td>
                 <td>@product.UnitPrice</td>

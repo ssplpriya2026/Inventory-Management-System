@@ -6,5 +6,6 @@ namespace Inventory_Management_System.Services
     {
         Task<StockTransactionViewModel> GetCreateFormAsync();
         Task<ServiceResult> ProcessStockMovementAsync(StockTransactionViewModel viewModel);
+        Task<List<RecentStockTransactionViewModel>> GetRecentTransactionAsync();
     }
 }
